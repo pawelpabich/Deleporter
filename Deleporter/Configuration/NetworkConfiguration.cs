@@ -18,7 +18,7 @@ namespace DeleporterCore.Configuration
 
         static NetworkConfiguration()
         {
-            var config = (DeleporterConfigurationSection)ConfigurationManager.GetSection("deleporter");
+            var config = DeleporterConfigurationSection.GetCurrent();
             if (config != null)
             {
                 Port = config.Port;

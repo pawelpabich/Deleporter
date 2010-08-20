@@ -22,5 +22,16 @@ namespace DeleporterCore.Configuration
             set { this["ServiceName"] = value; }
         }
 
+        [ConfigurationProperty("AllowInDebugModeOnly", DefaultValue = true)]
+        public bool AllowInDebugModeOnly
+        {
+            get { return (bool)this["AllowInDebugModeOnly"]; }
+            set { this["AllowInDebugModeOnly"] = value; }
+        }
+
+        public static DeleporterConfigurationSection GetCurrent()
+        {
+            return (DeleporterConfigurationSection)ConfigurationManager.GetSection("deleporter");
+        }
     }
 }

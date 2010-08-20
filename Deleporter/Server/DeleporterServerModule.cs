@@ -18,7 +18,7 @@ namespace DeleporterCore.Server
 
         public void Init(HttpApplication app)
         {
-            if (WasCompiledInDebugMode(app))
+            if (WasCompiledInDebugMode(app)|| !DeleporterConfigurationSection.GetCurrent().AllowInDebugModeOnly)
             {
                 if (Interlocked.Exchange(ref _hasCreatedChannel, 1) == 0)
                 {
